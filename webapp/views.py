@@ -73,7 +73,8 @@ def inventory_view():
         'persons' : Person.select(),
         'groups' : InventoryGroup.select(),
         'group_id' : int(group_id) if group_id else '',
-        'title' : core_settings.INVENTORY_ITEM_NAME_PLURAL
+        'title' : core_settings.INVENTORY_ITEM_NAME_PLURAL,
+        'enable_groups_sidebar' : core_settings.GROUPS_SIDEBAR
     }
     add_default_response(response)
     return render_template('inventory.html', **response)

@@ -67,6 +67,10 @@ DATABASE_NAME = 'webapp.db'
 INVENTORY_ITEM_NAME = 'Inventory'
 INVENTORY_ITEM_NAME_PLURAL = 'Inventory'
 
+# Enable the sidebar for the group selection
+# type: bool
+# default: False
+GROUPS_SIDEBAR = False
 
 # Customzie the settings per installation
 try:

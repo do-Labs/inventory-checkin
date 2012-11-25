@@ -11,6 +11,7 @@
 
 {% block top_banner %}
 {# remove the menu #}
+{% if not enable_groups_sidebar %}
 <form action="{{ url_for('inventory_view') }}" method="GET" id="group-form">
     <select id="group-list" name="group">
         <option value="">All</option>
@@ -19,9 +20,17 @@
         {% endfor %}
     </select>
 </form>
+{% endif %}
 {% endblock %}
 
 {% block content %}
+<div id="groups-sidebar">
+    {% for group in groups %}
+        <a href="{{ url_for('inventory_view') }}?group={{ group.id }}" class="{% if group.id == group_id %}selected{% endif %}">
+            {{ group.name }}
+        </a>
+    {% endfor %}
+</div>
 <div id="inventory">
     {% set can_edit = user.is_authenticated() %}
     <div class="alert alert-info">
